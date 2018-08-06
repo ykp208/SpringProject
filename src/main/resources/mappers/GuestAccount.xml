@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ 
+ 
+<mapper namespace="com.guestbook.mappers.GuestAccount">
+
+<select id="memberLoginData" parameterType="String" resultType="mdto">
+	select * from member where userid =#{userid}
+</select>
+
+<!-- 워드 없을때 -->
+<select id="noguestListData" parameterType="map" resultType="gdto">
+	select * from (select rownum rn, aa.*  from 
+				(select * from guestbook order by num desc ) aa) 
+				where rn between #{startRow} and #{endRow}
+</select>
+
+<!--  워드 있을때 -->
+<select id="yesguestListData" parameterType="map" resultType="gdto">
+	select * from (select rownum rn, aa.*  from 
+					(select * from guestbook where name like '%'||#{word}||'%' order by num desc) aa) 
+					where rn between #{startRow} and #{endRow}
+</select>
+
+<!-- 워드 없을때 카운트 검색 -->
+<select id="noWordGuestCountData" parameterType="map" resultType="int">
+	select count(*) from guestbook
+</select>
+<!-- 워드 있을때 카운트 검색 -->
+<select id="yesWordGuestCountData" parameterType="map" resultType="int">
+	select count(*) from guestbook where #{field} like #{word}
+</select>
+
+<!-- 게스트뷰 -->
+<select id="guestViewData" parameterType="int" resultType="gdto">
+	select * from guestbook where num = #{num}
+</select>
+
+<!-- 지우기 -->
+<delete id="guestDeleteData" parameterType="int">
+	delete from guestbook where num =#{num}
+</delete>
+
+<!-- 인서트 -->
+<insert id="guestInsertData" parameterType="gdto">
+	insert into guestbook values (guestbook_seq.nextval,#{name},#{content},#{grade},sysdate,#{ipaddr})
+</insert>
+	
+</mapper>

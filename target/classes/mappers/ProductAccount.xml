@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ 
+ 
+<mapper namespace="com.guestbook.mappers.ProductAccount">
+
+<!-- list  -->
+	<select id="priceListData" resultType="pdto">
+		select num,name,price,url,bview from price
+	</select>
+<!-- view -->
+	<select id="priceViewData" parameterType="int" resultType="pdto">
+		select num,name,price,url,bview from price where num = #{num}
+	</select>	
+<!-- updata -->
+	<update id="priceUpData" parameterType="pdto">
+		update  price set name=#{name}, price=#{price}, url=#{url}, bview=#{bview} where num =#{num}
+	</update>
+<!-- insert -->
+	<insert id="priceInsertData" parameterType="pdto">
+		insert into price values (price_seq.nextval, #{name}, #{price}, #{url}, #{bview})
+	</insert>
+<!-- delete -->
+	<delete id="priceDeleteData" parameterType="int">
+		delete from price where num =#{num}
+	</delete>
+</mapper>

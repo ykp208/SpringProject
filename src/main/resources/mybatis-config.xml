@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <configuration> 
+
+<typeAliases>
+	<typeAlias type="com.guestbook.domain.GuestDTO" alias="gdto"/>
+	<typeAlias type="com.guestbook.domain.BoardDTO" alias="bdto"/>
+	<typeAlias type="com.guestbook.domain.MemberDTO" alias="mdto"/>
+	<typeAlias type="com.guestbook.domain.PriceDTO" alias="pdto"/>
+</typeAliases>
+
+
+<mappers>
+<mapper resource="mappers/GuestAccount.xml"/>
+<mapper resource="mappers/ProductAccount.xml"/>
+</mappers>
+
+</configuration>

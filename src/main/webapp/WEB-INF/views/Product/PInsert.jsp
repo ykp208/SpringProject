@@ -45,7 +45,7 @@
 
 	
 	<div class="sc">
-	<form action="pInsert" method="post">
+	<form action="pInsert" method="post" enctype="multipart/form-data">
 		<ul>
 			<li class="li1">
 				상품명
@@ -63,8 +63,8 @@
 				사진
 			</li>
 			<li class="li2">
-				<input type="file" value="파일선택" name="url">
-				주의사항: 이미지를 변경하고자 할때만 선택하시오
+				<input type="file" value="파일선택" name="murl">
+				
 			</li>
 			<li class="li1">
 				설명

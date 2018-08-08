@@ -28,6 +28,7 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.core.JsonTokenId;
 import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.guestbook.domain.GuestDTO;
+import com.guestbook.domain.Id_Pwd_hash;
 import com.guestbook.domain.MemberDTO;
 import com.guestbook.service.GuestService;
 import com.guestbook.service.GuestServiceImpl;
@@ -55,9 +56,28 @@ public class GuestController {
 		return "guestbook/login";
 	}
 	
-	@RequestMapping(value="/guestlogin",method = RequestMethod.POST )
-	public String guestlogin(MemberDTO mdto,Model mo) {
+	@RequestMapping(value="/guestlogin_hash" , method=RequestMethod.POST)
+	@ResponseBody
+	public int guestlogin_hash() {
 		
+		
+		
+		return 10; 
+	}
+	
+	
+	@RequestMapping(value="/guestlogin",method = RequestMethod.POST )
+	public String guestlogin(int userid, int pwd, Model mo) {
+		
+		 String tt = Character.toString((char)(userid/10));
+		 String ttt = Character.toString((char)(pwd/10));
+		MemberDTO mdto = new MemberDTO();
+			mdto.setUserid(tt);
+			mdto.setPwd(ttt);
+		System.out.println("userid :"+mdto.getUserid());
+		System.out.println("pwd :"+mdto.getPwd());
+			
+			
 		MemberDTO mm = service.login(mdto.getUserid());
 		String url="";
 		

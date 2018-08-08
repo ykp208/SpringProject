@@ -43,7 +43,7 @@
 
 
 	<div class="f">
-	<img  src="/../../resources/${pdto.url }">
+	<img  src="./././resources/${pdto.url }" width="200" height="300">
 	</div>
 	<div class="sc">
 	<form action="pUpdata" method="post">

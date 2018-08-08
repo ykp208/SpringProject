@@ -32,6 +32,16 @@
 	<context:component-scan base-package="com.guestbook" />
 	
 	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean>
+	
+	 <beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="D:\sts\SpringGuest\src\main\webapp\resources"></beans:constructor-arg>
+	</beans:bean>	 
+	
+	<mybatis-spring:scan base-package="com.guestbook.persistence"/>
+	
 	
 	
 </beans:beans>

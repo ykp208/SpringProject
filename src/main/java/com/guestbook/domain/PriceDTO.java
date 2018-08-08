@@ -1,5 +1,7 @@
 package com.guestbook.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class PriceDTO {
 
 	private int num;
@@ -7,6 +9,16 @@ public class PriceDTO {
 	private int price;
 	private String url;
 	private String bview;
+	private MultipartFile murl;
+	
+	
+	
+	public MultipartFile getMurl() {
+		return murl;
+	}
+	public void setMurl(MultipartFile murl) {
+		this.murl = murl;
+	}
 	public int getNum() {
 		return num;
 	}

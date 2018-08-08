@@ -58,6 +58,19 @@ function pView(num){
 	})
 	
 }
+
+
+function pDelete(num){
+	$.ajax({
+		type:"post",
+		data:{"num":num},
+		url:"pDelete",
+		success:function(data){
+			$("#view").html(data);
+		}
+	})
+	
+}
 	
 </script>
 
@@ -110,7 +123,17 @@ function pView(num){
 			</li>
 		
 		</c:forEach>
-			
+			<li>
+				
+				<form action="productList">
+					<select name="type">
+						<option value="name">name</option>
+						<option value="price">price</option>
+					</select>
+					<input type="text" name="keyword">
+					<input type="submit" value="검색" >
+				</form> 
+			</li>
 		</ul>
 	</div>
 </body>

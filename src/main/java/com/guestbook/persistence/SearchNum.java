@@ -19,7 +19,7 @@ public class SearchNum {
 			searchFront += " and name like '%'||#{keyword}||'%' ";
 		}
 		
-		if(Integer.parseInt(params.get("keyword")).equals("price")) {
+		if(params.get("keyword").equals("price")) {
 			searchFront += " and price = #{keyword} ";
 		}
 		

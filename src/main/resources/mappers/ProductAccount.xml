@@ -19,9 +19,13 @@
 		update  price set name=#{name}, price=#{price}, url=#{url}, bview=#{bview} where num =#{num}
 	</update>
 <!-- insert -->
-	<insert id="priceInsertData" parameterType="pdto">
-		insert into price values (price_seq.nextval, #{name}, #{price}, #{url}, #{bview})
-	</insert>
+	 <insert id="priceInsertData" parameterType="pdto" statementType="CALLABLE">
+		{call PRICEINSERTDATA(#{name, mode = IN, jdbcType=VARCHAR},
+							  #{price, mode = IN, jdbcType=NUMERIC},
+							  #{url, mode = IN, jdbcType=VARCHAR},
+							  #{bview, mode = IN, jdbcType=VARCHAR}
+								)
+	</insert> 
 <!-- delete -->
 	<delete id="priceDeleteData" parameterType="int">
 		delete from price where num =#{num}

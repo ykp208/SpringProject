@@ -40,14 +40,16 @@ function tt(){
 	
 }
 	
-</script>
-<div id="uu">
-<html>
+</script><html>
+
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+
 <body>
+<div id="uu">
 <h1>로그인</h1>
 
 
@@ -61,6 +63,8 @@ PWD:<input type="password" name="pwd" id="pwd"><br>
 
 
 ${str }
-</body>
-</html>
 </div>
+</body>
+
+
+</html>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
      <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  
 <!DOCTYPE html>
 <html>
 <script>
@@ -51,7 +51,7 @@ function boarddelete(num){
 }
 </script>
 
-<html>
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
